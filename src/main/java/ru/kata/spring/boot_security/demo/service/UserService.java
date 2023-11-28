@@ -11,7 +11,7 @@ public interface UserService {
 
     void addUser(User user);
 
-    void saveUser(User user);
+    void saveUser(User user, String username);
 
     User getUser(Long id);
 

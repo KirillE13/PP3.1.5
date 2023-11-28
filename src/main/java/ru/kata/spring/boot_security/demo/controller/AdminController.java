@@ -43,8 +43,8 @@ public class AdminController {
     }
 
     @PostMapping("/admin/editUser/{id}")
-    public String editUser(@ModelAttribute("user") User user) {
-        userService.saveUser(user);
+    public String editUser(@ModelAttribute("user") User user, @ModelAttribute("username") String username) {
+        userService.saveUser(user, username);
         return "redirect:/admin";
     }
 
@@ -56,6 +56,6 @@ public class AdminController {
 
     @GetMapping("/")
     public String login() {
-        return "/login";
+        return "redirect:/login";
     }
 }
