@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 
 import jakarta.persistence.*;
+
 import java.util.Collection;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ public class User implements UserDetails {
     private String username;
     private String password;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
